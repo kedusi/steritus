@@ -7,7 +7,7 @@ module.exports = app => {
     .post(steritus.create_a_sterilizer)
 
 
-  app.route('/tasks/:taskId')
+  app.route('/sterilizers/:sterilizerId')
     .get(steritus.read_a_sterilizer)
     .put(steritus.update_a_sterilizer)
     .delete(steritus.delete_a_sterilizer)

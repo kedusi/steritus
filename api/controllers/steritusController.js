@@ -35,10 +35,15 @@ exports.update_a_sterilizer = (req, res) => {
 }
 
 exports.delete_a_sterilizer = (req, res) => {
-    Sterilizer.remove({
+    let sterilizerName
+    Sterilizer.findById(req.params.sterilizerId, (err, sterilizer) => {
+        if(err) res.send(err)
+        sterilizerName = sterilizer.name
+    })
+    Sterilizer.deleteOne({
         _id: req.params.sterilizerId
     }, err => {
-        if(err) res.send(err, sterilizer)
-        res.json({message: `${sterilizer.name} has been deleted`})
+        if(err) res.send(err)
+        res.json({message: `${sterilizerName} has been deleted`})
     })
 }
