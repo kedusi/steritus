@@ -7,11 +7,13 @@ const SterilizerSchema = new Schema({
         required: 'Kindly name your sterilizer as it is labeled on the facade.'
     },
     status: {
-        type: [{
-            type: String,
-            enum: ['available', 'in cycle', 'out of service']
-        }],
+        type: String,
+        enum: ['available', 'in cycle', 'out of service'],
         default: 'available'
+    },
+    message: {
+        type: String,
+        default: ""
     }
 })
 

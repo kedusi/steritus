@@ -2,9 +2,9 @@ const mongoose = require('mongoose'),
     Sterilizer = mongoose.model('Sterilizers')
 
 exports.list_all_sterilizers = (req, res) => {
-    Sterilizer.find({}, (err, sterilizer) => {
+    Sterilizer.find({}, (err, sterilizers) => {
         if(err) res.send(err)
-        res.json(sterilizer)
+        res.json(sterilizers)
     })
 }
 
